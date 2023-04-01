@@ -4,7 +4,7 @@
 	"description": "Backend api for fitness coach mobile app",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon ./src/index.ts",
+		"dev": "nodemon ./src/app.ts",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "Kimboh Lovette Bantar",
