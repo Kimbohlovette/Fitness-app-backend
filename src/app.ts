@@ -1,15 +1,10 @@
 import app from './server';
 import express from 'express';
-
-
+import exerciseRoutes from './routes/exerciseRoutes';
+import workoutRoutes from './routes/workoutRoutes';
 
 app.use(express.static('./public'));
-app.get('/', (req, res) => {
-	res.status(200).json({ success: true, status_code: 'fetch_successful'});
-});
+app.use(express.json());
 
-app.get('/workouts', (req, res) => {
-	res.end('Workouts Page');
-});
-
-
+app.use('/api/v1/exercises', exerciseRoutes);
+app.use('/api/v1/workouts', workoutRoutes);
