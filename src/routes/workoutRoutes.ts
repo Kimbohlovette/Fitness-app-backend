@@ -10,7 +10,7 @@ const router = express.Router();
 router.get('/', getWorkouts);
 router.post('/', createWorkout);
 router.get('/:id', getWorkout);
-router.put('/:id', updateWorkout);
+router.patch('/:id', updateWorkout);
 router.delete('/:id', deleteWorkout);
 
 export default router;
