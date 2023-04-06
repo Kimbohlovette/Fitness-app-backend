@@ -1,7 +1,19 @@
 import { Request, Response } from 'express';
+import { Workout } from '../../models/workoutModel';
+import { Error } from 'mongoose';
 
-export const deleteWorkout = (req: Request, res: Response) => {
+export const deleteWorkout = async (req: Request, res: Response) => {
 	const id = req.body.id;
-	// @TODO: Write delete workout logic in here
-	return res.status(200).json({ sucess: true, deletedId: 1 });
+	const deleted = await Workout.deleteOne({ _id: id });
+	if (deleted.deletedCount < 1) {
+		return res.status(404).json({
+			status_code: 'resourse_not_found',
+			success: false,
+		});
+	} else {
+		return res.status(201).json({
+			status_code: 'delete_document_successful',
+			success: true,
+		});
+	}
 };

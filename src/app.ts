@@ -3,6 +3,8 @@ import express from 'express';
 import exerciseRoutes from './routes/exerciseRoutes';
 import workoutRoutes from './routes/workoutRoutes';
 
+
+
 app.use(express.static('./public'));
 app.use(express.json());
 
